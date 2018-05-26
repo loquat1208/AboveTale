@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\GameSystem\GameSystem.cs" />
     <Compile Include="Assets\Scripts\Objects\IInteractiveObject.cs" />
     <Compile Include="Assets\Scripts\Objects\PlayableObject.cs" />
+    <Compile Include="Assets\Scripts\Objects\TalkableObject.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/sumis/Desktop/AboveTale/unity/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

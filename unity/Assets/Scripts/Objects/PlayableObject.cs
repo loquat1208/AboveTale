@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
+
+using UniRx;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayableObject : MonoBehaviour, IInteractiveObject
 {
-    private Rigidbody Rigid { get { return GetComponent<Rigidbody>(); } }
-
     public bool IsOn { get; private set; }
 
     private void Start()
@@ -16,6 +14,7 @@ public class PlayableObject : MonoBehaviour, IInteractiveObject
 
     private void Init()
     {
-        GameSystem.GetController(transform);
+        Controller controller = GameSystem.GetController(transform);
+        controller.OnInteraction.Subscribe(on => { IsOn = on; });
     }
 }
