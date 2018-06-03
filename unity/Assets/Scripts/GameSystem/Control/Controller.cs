@@ -32,7 +32,7 @@ public class Controller : MonoBehaviour
         switch (type)
         {
             case Type.KeyboardFixed:
-                control =  new ControlKeyboardFixed(rigid);
+                control = new ControlKeyboardFixed(rigid);
                 break;
             case Type.KeyboardAndMouse:
                 control = new ControlKeyboardAndMouse(rigid);
