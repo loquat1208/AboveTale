@@ -14,7 +14,7 @@ public class PlayableObject : MonoBehaviour, IInteractiveObject
 
     private void Init()
     {
-        Controller controller = GameSystem.GetController(transform);
-        controller.OnInteraction.Subscribe(on => { IsOn = on; });
+        OperateController operater = GameSystem.Operate(transform);
+        operater.OnInteraction.Subscribe(on => { IsOn = on; });
     }
 }

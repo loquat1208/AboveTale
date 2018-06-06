@@ -60,14 +60,19 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Actions\Controllers\MoveController.cs" />
     <Compile Include="Assets\Scripts\Actions\Models\MoveModel.cs" />
-    <Compile Include="Assets\Scripts\GameSystem\Control\ControlKeyboardAndMouse.cs" />
-    <Compile Include="Assets\Scripts\GameSystem\Control\ControlKeyboardFixed.cs" />
-    <Compile Include="Assets\Scripts\GameSystem\Control\Controller.cs" />
-    <Compile Include="Assets\Scripts\GameSystem\Control\IControl.cs" />
-    <Compile Include="Assets\Scripts\GameSystem\GameSystem.cs" />
+    <Compile Include="Assets\Scripts\GameSystem\Chat\ChatController.cs" />
+    <Compile Include="Assets\Scripts\GameSystem\Chat\ChatView.cs" />
+    <Compile Include="Assets\Scripts\GameSystem\GameSystem\GameSystem.cs" />
+    <Compile Include="Assets\Scripts\GameSystem\Operate\IRudder.cs" />
+    <Compile Include="Assets\Scripts\GameSystem\Operate\KeyboardAndMouseRudder.cs" />
+    <Compile Include="Assets\Scripts\GameSystem\Operate\KeyboardFixedRudder.cs" />
+    <Compile Include="Assets\Scripts\GameSystem\Operate\OperateController.cs" />
     <Compile Include="Assets\Scripts\Objects\IInteractiveObject.cs" />
     <Compile Include="Assets\Scripts\Objects\PlayableObject.cs" />
     <Compile Include="Assets\Scripts\Objects\TalkableObject.cs" />
+    <None Include="Assets\Optimize SDKohaku-Chanz\Shader\Unitychan_chara_eye.shader" />
+    <None Include="Assets\Optimize SDKohaku-Chanz\Readme_Optimize_SD Kohaku-Chanz.txt" />
+    <None Include="Assets\Optimize SDKohaku-Chanz\Shader\readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/sumis/Desktop/AboveTale/unity/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

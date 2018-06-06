@@ -3,7 +3,7 @@ using UnityEngine;
 
 using UniRx;
 
-public class Controller : MonoBehaviour
+public class OperateController : MonoBehaviour
 {
     public enum Type
     {
@@ -13,29 +13,29 @@ public class Controller : MonoBehaviour
 
     [SerializeField] private Type type = Type.KeyboardFixed;
 
-    private IControl control;
+    private Rigidbody rigid;
 
     public IObservable<bool> OnInteraction { get { return Observable.EveryUpdate().Select(_ => Input.GetButton("Fire1")).DistinctUntilChanged(); } }
 
-    public void Initialize()
+    public void Initialize(Transform transform)
     {
-        SetController();
+        rigid = transform.GetComponent<Rigidbody>();
+
+        InitRudder();
     }
 
-    private void SetController()
+    private void InitRudder()
     {
-        Rigidbody rigid = transform.parent.GetComponent<Rigidbody>();
-
         if (!rigid)
             return;
 
         switch (type)
         {
             case Type.KeyboardFixed:
-                control = new ControlKeyboardFixed(rigid);
+                new KeyboardFixedRudder(rigid);
                 break;
             case Type.KeyboardAndMouse:
-                control = new ControlKeyboardAndMouse(rigid);
+                new KeyboardAndMouseRudder(rigid);
                 break;
         }
     }

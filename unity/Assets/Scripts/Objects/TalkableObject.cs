@@ -10,6 +10,8 @@ public class TalkableObject : MonoBehaviour, IInteractiveObject
     private PlayableObject Player { get { return FindObjectOfType<PlayableObject>(); } }
     private SphereCollider Trigger { get { return GetComponentInChildren<SphereCollider>(); } }
 
+    private bool isTalking = false;
+
     public bool IsOn { get; private set; }
 
     void Start()
@@ -21,8 +23,15 @@ public class TalkableObject : MonoBehaviour, IInteractiveObject
     void OnTriggerStay(Collider collider)
     {
         bool isPlayer = collider.gameObject == Player.gameObject;
-        if (isPlayer && Player.IsOn)
+        if (isPlayer && Player.IsOn && !isTalking)
             Talk();
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        bool isPlayer = collider.gameObject == Player.gameObject;
+        if (isPlayer && Player.IsOn)
+            isTalking = false;
     }
 
     private void CreatTrigger()
@@ -35,6 +44,8 @@ public class TalkableObject : MonoBehaviour, IInteractiveObject
 
     private void Talk()
     {
-        Debug.Log("Talk");
+        isTalking = true;
+
+        GameSystem.Chat.Show();
     }
 }
